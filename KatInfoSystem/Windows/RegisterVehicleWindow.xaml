@@ -1,0 +1,69 @@
+﻿<Custom:Window xmlns:Custom="clr-namespace:Presentation.Windows"
+               x:Class="Presentation.Windows.RegisterVehicleWindow"
+               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               xmlns:local="clr-namespace:BusinessLogic;assembly=BusinessLogic"
+        Title="Регистрация">
+    <Grid Style="{StaticResource MainFrame}" Width="650">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="4" Text="Рег-я на автомобил" Style="{StaticResource Title}"/>
+        
+        <!--VEHICLE LABELS-->
+        <Label Grid.Row="1" Grid.Column="0" Content="Производител:"/>
+        <Label Grid.Row="2" Grid.Column="0" Content="Модел:"/>
+        <Label Grid.Row="3" Grid.Column="0" Content="Година:"/>
+        <Label Grid.Row="4" Grid.Column="0" Content="Тип:"/>
+        <Label Grid.Row="5" Grid.Column="0" Content="ВИН:"/>
+        <Label Grid.Row="6" Grid.Column="0" Content="Регистрационен номер:"/>
+        <Label Grid.Row="7" Grid.Column="0" Content="Описание:"/>
+        
+        <!-- PERSON TEXTBOXES-->
+        <Label Grid.Row="1" Grid.Column="2" Content="Име:"/>
+        <Label Grid.Row="2" Grid.Column="2" Content="Презиме:"/>
+        <Label Grid.Row="3" Grid.Column="2" Content="Фамилия:"/>
+        <Label Grid.Row="4" Grid.Column="2" Content="Адрес:"/>
+        <Label Grid.Row="5" Grid.Column="2" Content="ЕГН:"/>
+
+        <!--VEHICLE TEXTBOXES-->
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Manufacturer}"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Model}"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding YearOfProduction}"/>
+        <ListBox Grid.Row="4" Grid.Column="1" Name="VehicleTypeLB">
+            <ListBoxItem>CAR</ListBoxItem>
+            <ListBoxItem>MOTORCYCLE</ListBoxItem>
+            <ListBoxItem>TRUCK</ListBoxItem>
+            <ListBoxItem>BUS</ListBoxItem>
+        </ListBox>
+        <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding Vin}"/>
+        <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding RegistrationNumber}"/>
+        <TextBox Grid.Row="7" Grid.Column="1" Text="{Binding Description}"/>
+        
+        <!--PERSON TEXTBOXES-->
+        <TextBox Grid.Row="1" Grid.Column="3" Text="{Binding FirstName}"/>
+        <TextBox Grid.Row="2" Grid.Column="3" Text="{Binding MidName}"/>
+        <TextBox Grid.Row="3" Grid.Column="3" Text="{Binding LastName}"/>
+        <TextBox Grid.Row="4" Grid.Column="3" Text="{Binding Address}"/>
+        <TextBox Grid.Row="5" Grid.Column="3" Text="{Binding Egn}"/>
+
+        <Button Grid.Row="8" Grid.Column="0" Content="Add" Command="{Binding RegisterVehicleCommand}" Style="{StaticResource BigButton}"/>
+        <Button Grid.Row="8" Grid.Column="1" Content="Cancel" Command="{Binding CloseCommand}" Style="{StaticResource BigButton}"/>
+        <TextBlock Grid.Row="9" Grid.ColumnSpan="3" Text="{Binding ErrorMessage}" Style="{StaticResource ErrorMessage}"/>
+    </Grid>
+</Custom:Window>

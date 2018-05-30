@@ -1,0 +1,17 @@
+C:\Users\i340033\source\repos\KatInfoSystem\KatInfoSystem\bin\Debug\KatInfoSystem.exe.config
+C:\Users\i340033\source\repos\KatInfoSystem\KatInfoSystem\bin\Debug\KatInfoSystem.exe
+C:\Users\i340033\source\repos\KatInfoSystem\KatInfoSystem\bin\Debug\KatInfoSystem.pdb
+C:\Users\i340033\source\repos\KatInfoSystem\KatInfoSystem\obj\Debug\KatInfoSystem.csprojResolveAssemblyReference.cache
+C:\Users\i340033\source\repos\KatInfoSystem\KatInfoSystem\obj\Debug\MainWindow.g.cs
+C:\Users\i340033\source\repos\KatInfoSystem\KatInfoSystem\obj\Debug\App.g.cs
+C:\Users\i340033\source\repos\KatInfoSystem\KatInfoSystem\obj\Debug\KatInfoSystem_MarkupCompile.cache
+C:\Users\i340033\source\repos\KatInfoSystem\KatInfoSystem\obj\Debug\KatInfoSystem_MarkupCompile.lref
+C:\Users\i340033\source\repos\KatInfoSystem\KatInfoSystem\obj\Debug\MainWindow.baml
+C:\Users\i340033\source\repos\KatInfoSystem\KatInfoSystem\obj\Debug\KatInfoSystem.g.resources
+C:\Users\i340033\source\repos\KatInfoSystem\KatInfoSystem\obj\Debug\KatInfoSystem.Properties.Resources.resources
+C:\Users\i340033\source\repos\KatInfoSystem\KatInfoSystem\obj\Debug\KatInfoSystem.csproj.GenerateResource.Cache
+C:\Users\i340033\source\repos\KatInfoSystem\KatInfoSystem\obj\Debug\KatInfoSystem.csproj.CoreCompileInputs.cache
+C:\Users\i340033\source\repos\KatInfoSystem\KatInfoSystem\obj\Debug\KatInfoSystem.exe
+C:\Users\i340033\source\repos\KatInfoSystem\KatInfoSystem\obj\Debug\KatInfoSystem.pdb
+C:\Users\i340033\source\repos\KatInfoSystem\KatInfoSystem\obj\Debug\LoginWindow.g.cs
+C:\Users\i340033\source\repos\KatInfoSystem\KatInfoSystem\obj\Debug\LoginWindow.baml

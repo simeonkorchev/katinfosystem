@@ -1,0 +1,31 @@
+﻿<Custom:Page xmlns:Custom="clr-namespace:Presentation.Pages"
+             x:Class="Presentation.Pages.UserPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:converters="clr-namespace:Presentation.Converters">
+    <Custom:Page.Resources>
+        <converters:UserToGreetingConverter x:Key="UserToGreetingConverter"/>
+    </Custom:Page.Resources>
+    <Grid Style="{StaticResource MainFrame}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="{Binding user, Converter={StaticResource UserToGreetingConverter}}" Style="{StaticResource Title}"/>
+
+        <StackPanel Grid.Row="2" Grid.Column="1">
+            <Button Content="Регистрация на автомобил" Command="{Binding OpenVehicleRegistrationWindowCommand}"/>
+            <Button Content="Добавяне на глоба" Command="{Binding OpenAddFinesWindowCommand}"/>
+            <Button Content="Добавяне на данък" Command="{Binding OpenAddTaxWindowCommand}"/>
+            <Button Content="Справка и плащане на глоба" Command="{Binding OpenFinesInformationWindowCommand}"/>
+            <Button Content="Справка и плащане на данък" Command="{Binding OpenTaxInformationWindowCommand}"/>
+            <Button Content="Прехвърляне на собственост" Command="{Binding OpenTransferOwnershipWindowCommand}"/>
+        </StackPanel>
+    </Grid>
+</Custom:Page>

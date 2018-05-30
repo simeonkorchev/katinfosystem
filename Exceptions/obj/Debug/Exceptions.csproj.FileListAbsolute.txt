@@ -1,0 +1,6 @@
+D:\Projects\PS - Project\KatInfoSystem\Exceptions\bin\Debug\Exceptions.exe.config
+D:\Projects\PS - Project\KatInfoSystem\Exceptions\bin\Debug\Exceptions.exe
+D:\Projects\PS - Project\KatInfoSystem\Exceptions\bin\Debug\Exceptions.pdb
+D:\Projects\PS - Project\KatInfoSystem\Exceptions\obj\Debug\Exceptions.csproj.CoreCompileInputs.cache
+D:\Projects\PS - Project\KatInfoSystem\Exceptions\obj\Debug\Exceptions.exe
+D:\Projects\PS - Project\KatInfoSystem\Exceptions\obj\Debug\Exceptions.pdb

@@ -1,0 +1,35 @@
+﻿<Custom:Window xmlns:Custom="clr-namespace:Presentation.Windows"
+               x:Class="Presentation.Windows.TransferOwnershipWindow"
+               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               xmlns:converters="clr-namespace:Presentation.Converters"
+               Title="FinesInformationWindow" Height="450" Width="800">
+    <Window.Resources>
+        <converters:ExistenceToVisibility x:Key="ExistenceToVisibility"/>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="Прехвърляне на собственост" Style="{StaticResource Title}"/>
+
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="ЕГН на текущ собственик:"></TextBlock>
+        <TextBox Grid.Row="2" Grid.Column="0" Text="{Binding CurrenetOwnerEgn}"></TextBox>
+
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="ЕГН на текущ собственик:"></TextBlock>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding NewOwnerEgn}"></TextBox>
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="Вин на МПС:"></TextBlock>
+        <TextBox Grid.Row="4" Grid.Column="0" Text="{Binding Vin}"></TextBox>
+        <Button Grid.Row="4" Grid.Column="1" Command="{Binding TransferOwnership}" Content="Прехвърли"></Button>
+        <TextBlock Grid.Row="5" Grid.ColumnSpan="2" Text="{Binding ErrorMessage}" Visibility="{Binding FinesText, Converter={StaticResource ExistenceToVisibility}}" Style="{StaticResource ErrorMessage}"/>
+    </Grid>
+</Custom:Window>

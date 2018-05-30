@@ -1,0 +1,20 @@
+﻿Presentation
+
+
+winexe
+C#
+.cs
+D:\Projects\PS - Project\KatInfoSystem\KatInfoSystem\obj\Debug\
+Presentation
+none
+false
+DEBUG;TRACE
+D:\Projects\PS - Project\KatInfoSystem\KatInfoSystem\App.xaml
+121500691175
+
+21-1108378451
+19-255746516
+Pages\LoginPage.xaml;Pages\LoginRegisterPage.xaml;Pages\RegisterPage.xaml;Pages\UserPage.xaml;Windows\AddFinesWindow.xaml;Windows\AddTaxWindow.xaml;Windows\FinesInformationWindow.xaml;Windows\GetResolutionWindow.xaml;Windows\KatSystemWindow.xaml;Windows\RegisterVehicleWindow.xaml;Windows\TaxInformationWindow.xaml;Windows\TransferOwnershipWindow.xaml;
+
+False
+

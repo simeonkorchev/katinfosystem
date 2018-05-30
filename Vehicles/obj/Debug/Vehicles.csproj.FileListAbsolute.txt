@@ -1,0 +1,6 @@
+D:\Projects\PS - Project\KatInfoSystem\Vehicles\bin\Debug\Vehicles.exe.config
+D:\Projects\PS - Project\KatInfoSystem\Vehicles\bin\Debug\Vehicles.exe
+D:\Projects\PS - Project\KatInfoSystem\Vehicles\bin\Debug\Vehicles.pdb
+D:\Projects\PS - Project\KatInfoSystem\Vehicles\obj\Debug\Vehicles.csproj.CoreCompileInputs.cache
+D:\Projects\PS - Project\KatInfoSystem\Vehicles\obj\Debug\Vehicles.exe
+D:\Projects\PS - Project\KatInfoSystem\Vehicles\obj\Debug\Vehicles.pdb

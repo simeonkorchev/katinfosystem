@@ -1,0 +1,48 @@
+﻿<Custom:Window xmlns:Custom="clr-namespace:Presentation.Windows"
+               x:Class="Presentation.Windows.AddFinesWindow"
+               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               xmlns:converters="clr-namespace:Presentation.Converters"
+               Title="FinesInformationWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.Resources>
+            <XmlDataProvider x:Key="FineResourcesKey" XPath="FineResources">
+                <x:XData>
+                    <FineResources xlmns="">
+                        <FineResource Name="CAMERA"></FineResource>
+                        <FineResource Name="ACT"></FineResource>
+                        <FineResource Name="FICHE"></FineResource>
+                    </FineResources>
+                </x:XData>
+            </XmlDataProvider>
+        </Grid.Resources>
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="Въвеждане на глоба" Style="{StaticResource Title}"/>
+        <Label Grid.Row="1" Grid.Column="0">ВИН:</Label>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Vin}"></TextBox>
+        <Label Grid.Row="2" Grid.Column="0">Сума</Label>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Amount}"></TextBox>
+
+        <Label Grid.Row="4" Grid.Column="0">Източник</Label>
+        <ListBox Grid.Row="4" Grid.Column="1" Name="FineResourceLB">
+            <ListBoxItem>CAMERA</ListBoxItem>
+            <ListBoxItem>ACT</ListBoxItem>
+            <ListBoxItem>FICHE</ListBoxItem>
+        </ListBox>
+        <TextBlock Grid.Row="3" Grid.ColumnSpan="2" Text="{Binding ErrorMessage}" Style="{StaticResource ErrorMessage}"></TextBlock>
+        <Button Grid.Row="5" Grid.Column="1" Content="Въведи" Command="{Binding AddCommand}" Style="{StaticResource BigButton}"/>
+        <Button Grid.Row="5" Grid.Column="2" Content="Cancel" Command="{Binding CloseCommand}" Style="{StaticResource BigButton}"/>
+    </Grid>
+</Custom:Window>
