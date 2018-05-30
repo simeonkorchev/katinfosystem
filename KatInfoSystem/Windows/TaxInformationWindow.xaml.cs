@@ -30,14 +30,28 @@ namespace Presentation.Windows
 
         private void Print()
         {
-            
+            if(TaxesText != null)
+            {
+                PrinterUtils.Print(TaxesText);
+            }
         }
 
         private void PayTaxes()
         {
             Vehicle Vehicle = EntityManagerFactory.VehiclesManager.GetVehicleByVin(Vin);
-            EntityManagerFactory.VehiclesManager.Delete(Vehicle.Id);
-            EntityManagerFactory.VehiclesManager.Create(Vehicle.Vin, Vehicle.RegistrationNumber, Vehicle.Manufacturer,Vehicle.Model, Vehicle.YearOfProduction, Vehicle.GetVehicleTypeAsString(), Vehicle.Description, Vehicle.Owner.Id, 0);
+            if (Vehicle == null)
+            {
+                ErrorMessage = "МПС с такъв ВИН не е намерено";
+                return;
+            }
+            if(Vehicle.Tax <=0)
+            {
+                ErrorMessage = "Няма дължим данък";
+                return;
+            }
+
+            EntityManagerFactory.VehiclesManager.PayTax(Vin, Vehicle.Tax);
+            MessageBox.Show("Плащането е извършено успешно!");
         }
 
         private void CheckTaxes()
@@ -49,6 +63,12 @@ namespace Presentation.Windows
             }
 
             Vehicle Vehicle = EntityManagerFactory.VehiclesManager.GetVehicleByVin(Vin);
+            if(Vehicle == null)
+            {
+                ErrorMessage = "Не е намерен автомобил по това ЕГН.";
+                return;
+            }
+
             TaxesTextResolver TaxesTextResolver = new TaxesTextResolver(Vehicle.Tax);
             TaxesText = TaxesTextResolver.Resolve();
             this.OnPropertyChanged(nameof(TaxesText));

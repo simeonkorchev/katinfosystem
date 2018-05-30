@@ -14,6 +14,7 @@ namespace Persistence.Repositories
 
         VehicleEntity GetVehicleByVin(string Vin);
         VehicleEntity AddTax(string vin, double taxAmount);
+        VehicleEntity PayTax(string vin, double taxAmount);
         void Remove(VehicleEntity entity);
     }
 }

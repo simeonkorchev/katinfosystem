@@ -1,5 +1,7 @@
 ﻿using BusinessLogic;
 using Prism.Commands;
+using System;
+using System.Collections.Generic;
 using System.Windows.Input;
 namespace Presentation.Windows
 {
@@ -16,6 +18,8 @@ namespace Presentation.Windows
 
         private void TransferOwnership()
         {
+            ErrorMessage = null;
+     
             if (CurrentOwnerEgn == null || NewOwnerEgn == null)
             {
                 ErrorMessage = "Моля, въведете стойност и за двете ЕГН-та.";
@@ -28,20 +32,43 @@ namespace Presentation.Windows
 
             Person currentOwner = EntityManagerFactory.PersonsManager.GetPersonByEgn(CurrentOwnerEgn);
             Person newOwner = EntityManagerFactory.PersonsManager.GetPersonByEgn(NewOwnerEgn);
-            Vehicle vehicle = EntityManagerFactory.VehiclesManager.GetVehicleByVin(Vin);
-
-            if (currentOwner == null || newOwner == null )
+            if(currentOwner == null)
             {
-                ErrorMessage = "Моля, въведете коректни ЕГН-та";
+                ErrorMessage = "Не е намерен гражданин с ЕГН: " + CurrentOwnerEgn;
                 return;
             }
-            if(vehicle == null)
+
+            if(newOwner == null)
             {
-                ErrorMessage = "Моля, въведете коректен ВИН";
+                ErrorMessage = "Не е намерен гражданин с ЕГН: " + NewOwnerEgn;
+                return;
+            }
+
+            Vehicle vehicle = EntityManagerFactory.VehiclesManager.GetVehicleByVin(Vin);
+
+            if(vehicle == null) 
+            {
+                ErrorMessage = "Не е намерена информация за МПС с ВИН: " + Vin;
+                return;
+            }
+
+            if (!CurrentOwnerPossessTheVehicle(currentOwner, vehicle.Id))
+            {
+                ErrorMessage = "Гражданинът с ЕГН: " + CurrentOwnerEgn + " не притежава такова превозно средство";
                 return;
             }
 
             EntityManagerFactory.PersonsManager.TransferOwnership(vehicle.Id, currentOwner.Id, newOwner.Id);
+        }
+
+        private bool CurrentOwnerPossessTheVehicle(Person currentOwner, Guid id)
+        {
+            foreach(Vehicle Vehicle in currentOwner.Vehicles)
+            {
+                if (Vehicle.Id.Equals(id)) return true;
+            }
+
+            return false;
         }
     }
 }

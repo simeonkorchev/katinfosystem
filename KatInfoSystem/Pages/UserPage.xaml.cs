@@ -28,6 +28,7 @@ namespace Presentation.Pages
         public ICommand OpenTransferOwnershipWindowCommand { get; }
         public ICommand OpenAddFinesWindowCommand { get; }
         public ICommand OpenAddTaxWindowCommand { get; }
+        public ICommand ExitCommand { get; }
 
         public UserPage()
         { }
@@ -41,6 +42,12 @@ namespace Presentation.Pages
             OpenAddFinesWindowCommand = new DelegateCommand(OpenAddFinesWindow);
             OpenAddTaxWindowCommand = new DelegateCommand(OpenAddTaxWindow);
             OpenTransferOwnershipWindowCommand = new DelegateCommand(TransferOwnership);
+            ExitCommand = new DelegateCommand(Exit);
+        }
+
+        private void Exit()
+        {
+            Application.Current.Shutdown();
         }
 
         private void TransferOwnership()
@@ -59,7 +66,7 @@ namespace Presentation.Pages
         {
             if (this.user.Scopes.Contains(TokenScope.TAX))
             {
-                AddTaxWindow window = new AddTaxWindow();
+                AddTaxWindow window = new AddTaxWindow(user);
                 window.ShowDialog();
                 return;
             }

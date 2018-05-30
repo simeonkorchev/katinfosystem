@@ -32,9 +32,15 @@ namespace Presentation.Pages
                     return;
                 }
 
-                User user = EntityManagerFactory.UsersManager.Create(Username, Password);
-
-                NavigateToPage(new UserPage(user));
+                try
+                {
+                    User user = EntityManagerFactory.UsersManager.Create(Username, Password);
+                    NavigateToPage(new UserPage(user));
+                } catch (Exception)
+                {
+                    ErrorMessage = "Вече съществува потребител с такова име.";
+                    return;
+                }
             });
         }
     }

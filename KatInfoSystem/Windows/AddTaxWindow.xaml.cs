@@ -13,7 +13,7 @@ namespace Presentation.Windows
         public string Vin { get; set; }
         public string Amount { get; set; }
         public ICommand AddCommand { get; }
-        private User User { get; }
+        public User User { get; }
 
         public AddTaxWindow()
         {
@@ -28,7 +28,8 @@ namespace Presentation.Windows
 
         private void Add()
         {
-            double amount;
+            double amount=0.0;
+
             if (!InputValidatorUtils.validateVIN(Vin))
             {
                 ErrorMessage = "Моля, въведете коректен ВИН";
@@ -50,10 +51,13 @@ namespace Presentation.Windows
             }
 
             Vehicle Vehicle = EntityManagerFactory.VehiclesManager.GetVehicleByVin(Vin);
-            Vehicle.Tax += Double.Parse(Amount);
-            EntityManagerFactory.VehiclesManager.Delete(Vehicle.Id);
-            Vehicle = EntityManagerFactory.VehiclesManager.Create(Vehicle.Vin, Vehicle.RegistrationNumber, Vehicle.Manufacturer, Vehicle.Model, Vehicle.YearOfProduction, Vehicle.GetVehicleTypeAsString(),
-                Vehicle.Description, Vehicle.Owner.Id, Vehicle.Tax);
+            if (Vehicle == null)
+            {
+                ErrorMessage = "МПС с този ВИН не е намерен";
+                return;
+            }
+
+            Vehicle = EntityManagerFactory.VehiclesManager.AddTax(Vin, Double.Parse(Amount));
 
             if (Vehicle == null)
             {

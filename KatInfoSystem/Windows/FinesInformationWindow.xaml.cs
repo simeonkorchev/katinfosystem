@@ -7,6 +7,7 @@ namespace Presentation.Windows
     using System.Collections.ObjectModel;
     using System.Linq;
     using System.Windows;
+    using System.Windows.Data;
     using System.Windows.Input;
     using Utils;
 
@@ -29,7 +30,8 @@ namespace Presentation.Windows
 
         private void Print()
         {
-            PrinterUtils.Print(FinesText);
+            if(FinesText != null)
+                PrinterUtils.Print(FinesText);
         }
 
         private void CheckFines()
@@ -41,6 +43,13 @@ namespace Presentation.Windows
             }
 
             Person person = EntityManagerFactory.PersonsManager.GetPersonByEgn(Egn);
+
+            if (person == null)
+            {
+                ErrorMessage = "Не е намерена информация за лице с това ЕГН";
+                return;
+            }
+
             List<Fine> fines = person.Fines.ToList();
             AddFinesToListView(fines);
             FinesTextResolver FinesTextResolver = new FinesTextResolver(fines);
@@ -73,6 +82,9 @@ namespace Presentation.Windows
                 }
 
                 EntityManagerFactory.FinesManager.Delete(FineToPay.Id);
+
+                FinesList.Remove(FineToPay.Id.ToString());
+
                 MessageBox.Show("Плащането е успешно!");
             }
             

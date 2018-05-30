@@ -26,6 +26,7 @@
             <Button Content="Справка и плащане на глоба" Command="{Binding OpenFinesInformationWindowCommand}"/>
             <Button Content="Справка и плащане на данък" Command="{Binding OpenTaxInformationWindowCommand}"/>
             <Button Content="Прехвърляне на собственост" Command="{Binding OpenTransferOwnershipWindowCommand}"/>
+            <Button Content="Изход" Command="{Binding ExitCommand}"/>
         </StackPanel>
     </Grid>
 </Custom:Page>

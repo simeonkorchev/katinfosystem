@@ -4,3 +4,4 @@ D:\Projects\PS - Project\KatInfoSystem\Utils\bin\Debug\Utils.pdb
 D:\Projects\PS - Project\KatInfoSystem\Utils\obj\Debug\Utils.csproj.CoreCompileInputs.cache
 D:\Projects\PS - Project\KatInfoSystem\Utils\obj\Debug\Utils.exe
 D:\Projects\PS - Project\KatInfoSystem\Utils\obj\Debug\Utils.pdb
+D:\Projects\PS - Project\KatInfoSystem\Utils\obj\Debug\Utils.csprojResolveAssemblyReference.cache

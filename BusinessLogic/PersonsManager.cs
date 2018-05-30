@@ -25,6 +25,11 @@ namespace BusinessLogic
             return UsingUnitOfWork(unitOfWork =>
             {
                 PersonEntity WantedPerson = unitOfWork.Persons.GetPersonByEgn(Egn);
+                if(WantedPerson == null)
+                {
+                    return null;
+                }
+
                 return new Person(WantedPerson);
             });
         }
@@ -44,7 +49,7 @@ namespace BusinessLogic
             {
                 PersonEntity CurrentOwner = unitOfWork.Persons.Get(currentOwnerId);
                 PersonEntity NewOwner = unitOfWork.Persons.Get(newOwnerId);
-                VehicleEntity OwnedVehicle = CurrentOwner.vehicles.Where(vehicle => vehicle.Id == VehicleId).Single();
+                VehicleEntity OwnedVehicle = unitOfWork.Vehicles.Get(VehicleId);
 
                 unitOfWork.Persons.TransferOwnership(OwnedVehicle, CurrentOwner, NewOwner);
                 unitOfWork.Complete();

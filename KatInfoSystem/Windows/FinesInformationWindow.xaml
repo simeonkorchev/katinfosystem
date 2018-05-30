@@ -23,7 +23,7 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="Справка за глоби" Style="{StaticResource Title}"/>
-        <Label Grid.Row="1" Grid.Column="0">ЕГН:</Label>
+        <Label Grid.Column="0"  Grid.Row="1" Content="ЕГН:"></Label>
         <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Egn}"></TextBox>
         <TextBox Grid.Row="3" Grid.ColumnSpan="2" Text="{Binding FinesText}" Visibility="{Binding FinesText, Converter={StaticResource ExistenceToVisibility}}"></TextBox>
         <TextBlock Grid.Row="2" Text="{Binding ErrorMessage}" Style="{StaticResource ErrorMessage}"></TextBlock>

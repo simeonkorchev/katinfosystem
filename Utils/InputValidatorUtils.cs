@@ -49,6 +49,11 @@ namespace Utils
 
             public bool validate(string t)
             {
+                if(t == null)
+                {
+                    return false;
+                }
+
                 return t.Length == 10;
             }
         }

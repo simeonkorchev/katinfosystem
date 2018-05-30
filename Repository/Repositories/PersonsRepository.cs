@@ -61,6 +61,8 @@ namespace Repository.Repositories
             PersonEntity NewOwnerEntity = Set.SingleOrDefault(person => person.Id == currentOwner.Id);
             CurrentOwnerEntity.vehicles.Remove(OwnedVehicle);
             NewOwnerEntity.vehicles.Add(OwnedVehicle);
+            dbContext.Entry(CurrentOwnerEntity).State = EntityState.Modified;
+            dbContext.Entry(NewOwnerEntity).State = EntityState.Modified;
         }
     }
 }

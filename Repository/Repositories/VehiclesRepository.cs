@@ -53,7 +53,30 @@ namespace Persistence
 
         public VehicleEntity AddTax(string vin, double taxAmount)
         {
-            throw new NotImplementedException();
+            VehicleEntity Entity =Set
+                .Include(v => v.owner)
+                .SingleOrDefault(v => v.vin == vin);
+            if(Entity != null)
+            {
+                Entity.tax += taxAmount;
+                dbContext.Entry(Entity).State = EntityState.Modified;
+            }
+            
+            return Entity;
+        }
+
+        public VehicleEntity PayTax(string vin, double taxAmount)
+        {
+            VehicleEntity Entity = Set
+                .Include(v => v.owner)
+                .SingleOrDefault(v => v.vin == vin);
+            if (Entity != null)
+            {
+                Entity.tax -= taxAmount;
+                dbContext.Entry(Entity).State = EntityState.Modified;
+            }
+
+            return Entity;
         }
     }
 }

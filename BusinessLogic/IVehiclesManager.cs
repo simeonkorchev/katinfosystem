@@ -15,6 +15,8 @@ namespace BusinessLogic
 
         Vehicle AddTax(string Vin, double TaxAmount);
 
+        Vehicle PayTax(string Vin, double TaxAmount);
+
         void Delete(Guid Id);
     }
 }

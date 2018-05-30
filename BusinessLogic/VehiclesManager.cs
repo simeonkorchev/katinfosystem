@@ -52,5 +52,19 @@ namespace BusinessLogic
                 return new Vehicle(entity);
             });
         }
+
+        public Vehicle PayTax(string Vin, double TaxAmount)
+        {
+            return UsingUnitOfWork(unitOfWork =>
+            {
+                VehicleEntity Entity = unitOfWork.Vehicles.PayTax(Vin, TaxAmount);
+                if(Entity == null)
+                {
+                    return null;
+                }
+                unitOfWork.Complete();
+                return new Vehicle(Entity);
+            });
+        }
     }
 }
